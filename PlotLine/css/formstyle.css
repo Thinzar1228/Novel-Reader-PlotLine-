@@ -1,0 +1,262 @@
+/* whole form */
+.wrapper{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 400px;
+    height: 480px;
+    background: transparent;
+    border: 2px solid rgba(255,255,255,.5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0,0,0,.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: transform .5s ease, height 0.2s ease;
+    z-index: 9999;
+}
+
+.wrapper.active-popup{
+    transform: translate(-50%, -50%) scale(1); 
+}
+
+.wrapper.active{
+    height: 560px;
+}
+
+.wrapper .formbox{
+    width: 100%;
+    padding: 40px;
+}
+
+.wrapper .form-box.login{
+    transition: transform 1.8 ease;
+    transform: translateX(0);
+}
+
+.wrapper.active .form-box.login{
+    transition: none;
+    transform: translateX(-400px);
+}
+
+
+.wrapper .form-box.register{
+    position: absolute;
+    transform: translateX(400px);
+}
+
+.wrapper.active .form-box.register{
+    transition: transform 1.8 ease;
+    transform: translateX(0);
+}
+
+/* form close icon */
+.wrapper .icon-close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background: #162938;
+    font-size: 2em;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 20px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+/* inside whole form */
+.form-box h2{
+    font-size: 2em;
+    color: #162938;
+    text-align: center;
+   margin-bottom: 30px;
+}
+
+.input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #162938;
+    margin-right: 90px;
+    margin-bottom: 25px;
+}
+
+   /* .wrapper .input-box input{
+       margin-right: 90px;
+    } */
+
+
+.input-box input::placeholder {
+    color: #888;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #162938;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
+}
+
+
+.input-box input:focus ~ label,
+.input-box input:not(:placeholder-shown) ~ label {
+    top: -5px;
+}
+
+/* hide placeholder by default */
+.input-box input::placeholder {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+/* show placeholder only when input is focused */
+.input-box input:focus::placeholder {
+    opacity: 1;
+    color: #888;
+}
+
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #162938;
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+
+}
+
+.remember-forgot{
+    font-size: .9em;
+    color: #162938;
+    font-weight: 500;
+    margin: -1px 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.remember-forgot label input{
+    accent-color: #162938;
+    margin-right: 3px;
+}
+
+.remember-forgot a{
+    color: #162938;
+    text-decoration: none;
+}
+
+.remember-forgot a:hover{
+    text-decoration: underline;  
+}
+
+.btn{
+    width: 100%;
+    height: 45px;
+    background: #162938;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    color: #fff;
+    font-weight: 500;
+}
+
+.btn:hover {
+    background: #162938 !important;
+    color: #fff !important;
+    box-shadow: 0 2px 8px rgba(22, 41, 56, 0.3);
+    border: none !important;
+    opacity: 1 !important;
+}
+
+.login-register{
+    font-size: .9em;
+    color: #162938;
+    text-align: center;
+    font-weight: 500;
+    margin:25px 0 10px;
+}
+
+.login-register p a{
+    color: #162938;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-register p a:hover{
+    text-decoration: underline;
+}
+
+/* alert */
+#custom-alert {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-weight: 600;
+    color: #fff;
+    background-color: #162938;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    z-index: 10000;
+}
+
+#custom-alert.show {
+    opacity: 1;
+}
+
+/* icon */
+.input-box .icon {
+    position: absolute;
+    right: 8px;
+    top: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+    color: #162938;
+    z-index: 20;
+    pointer-events: auto;
+    line-height: 0 !important;
+}
+
+.eye-toggle {
+    display: none; 
+    cursor: pointer;
+}
+
+.input-box input {
+    padding-right: 35px !important;
+}
+
+/* ===== REAL-TIME VALIDATION STATES ===== */
+.input-box.input-error input {
+    border-bottom: 3px solid #ff5a6a !important;
+    margin:2.1px 0;
+}
+
+.input-box.input-valid input {
+    border-bottom: 3px solid #31fc61 !important;
+    margin:2.1px 0;
+}

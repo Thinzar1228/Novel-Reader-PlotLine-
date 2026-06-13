@@ -1,0 +1,160 @@
+/* Branding Colors */
+:root {
+  --novela-blue: #a3d4ff; /* Adjust hex to match image exactly */
+  --novela-dark-blue: #1e88e5;
+}
+
+.brand-text {
+  font-weight: 700;
+  color: var(--novela-dark-blue);
+  font-size: 1.5rem;
+}
+
+.logo-icon {
+  background-color: var(--novela-blue);
+  color: #1a2a40;
+  padding: 8px 12px;
+  border-radius: 10px;
+}
+
+/* Write Button Styling */
+.btn-write {
+  background-color: var(--novela-blue);
+  border-radius: 8px;
+  font-weight: 600;
+  padding: 8px 20px;
+  border: none;
+}
+
+/* Elements */
+.vertical-divider {
+  width: 1px;
+  height: 30px;
+  background-color: #e0e0e0;
+}
+
+.avatar {
+  width: 35px;
+  height: 35px;
+  background-color: #e3f2fd;
+  color: #0d47a1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+/* Navigation Spacing */
+.nav-link {
+  font-size: 1.1rem;
+}
+
+/* Horizontal Mega Menu Fix */
+.navbar .dropdown-menu {
+  margin-top: 10px;
+  border-radius: 0 0 8px 8px;
+  z-index: 1100;
+}
+
+.search-container {
+    position: relative;
+    background: #f1f3f5;
+    border-radius: 25px;
+    padding: 2px 10px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid transparent;
+}
+
+/* Expanded State */
+.search-container.active {
+    background: #fff;
+    border-color: #a3d4ff;
+    box-shadow: 0 0 0 4px rgba(163, 212, 255, 0.2);
+}
+
+.search-input {
+    width: 0;
+    border: none;
+    background: transparent;
+    outline: none;
+    padding: 5px 0;
+    transition: width 0.4s ease, margin 0.4s ease;
+    font-size: 0.9rem;
+}
+
+/* When parent is active, expand the input */
+.search-container.active .search-input {
+    width: 250px; /* How wide it should expand */
+    margin-left: 10px;
+}
+
+.search-trigger-btn {
+    border: none;
+    background: transparent;
+    color: #555;
+    padding: 5px;
+}
+
+/* The @User / Novel Badge */
+.search-badge {
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: #a3d4ff;
+    color: #004d99;
+    padding: 2px 8px;
+    border-radius: 12px;
+    white-space: nowrap;
+}
+
+/* Results Dropdown Container */
+#searchResults {
+    top: 110%;
+    right: 0;
+    width: 300px;
+    background: #fff;
+    border-radius: 15px;
+    border: 1px solid #eef2f7;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    overflow: hidden;
+    z-index: 1050;
+}
+
+/* Individual Result Item */
+.search-result-item {
+    padding: 12px 15px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    transition: background 0.2s;
+    border-bottom: 1px solid #f8f9fa;
+}
+
+.search-result-item:last-child { border-bottom: none; }
+
+.search-result-item:hover {
+    background: #f1f8ff;
+}
+
+.search-result-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-right: 12px;
+}
+
+/* Remove dropdown arrow from Write button if desired */
+.btn-write.dropdown-toggle::after {
+  display: none;
+}
+
+.cover-image {
+    /* If no image, show this nice blue gradient similar to your design */
+    background: #1e88e5; 
+    background: linear-gradient(135deg, #a3d4ff 0%, #1e88e5 100%);
+    background-size: cover;
+    background-position: center;
+}
